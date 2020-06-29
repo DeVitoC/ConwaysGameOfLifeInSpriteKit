@@ -416,7 +416,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8825K9HH49;
-				INFOPLIST_FILE = SpriteKitConwayGOL/Info.plist;
+				INFOPLIST_FILE = SpriteKitConwayGOL/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -434,7 +434,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8825K9HH49;
-				INFOPLIST_FILE = SpriteKitConwayGOL/Info.plist;
+				INFOPLIST_FILE = SpriteKitConwayGOL/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
