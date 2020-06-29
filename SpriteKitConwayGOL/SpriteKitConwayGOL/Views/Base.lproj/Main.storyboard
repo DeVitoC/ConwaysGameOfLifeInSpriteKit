@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="IGE-1M-IH2">
+            <objects>
+                <viewController id="C2Y-aT-fQt" customClass="SettingsViewController" customModule="SpriteKitConwayGOL" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dvu-tO-zpZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="uIK-Xw-k21"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="MAG-1x-ZKK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RLi-bu-vbd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="584" y="421"/>
+        </scene>
+        <!--Game Of Life-->
+        <scene sceneID="Fjv-dY-hMO">
+            <objects>
+                <viewController id="HY9-qU-nMS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KHN-IJ-4OU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="0Vj-D3-Qxh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Game Of Life" image="ant.fill" catalog="system" id="UOi-jq-EkI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a8T-hZ-aU3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="584" y="-228"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Y7u-pT-GgS">
+            <objects>
+                <tabBarController id="H51-DN-JmJ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ngu-KE-77t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="HY9-qU-nMS" kind="relationship" relationship="viewControllers" id="lk7-AN-BgI"/>
+                        <segue destination="C2Y-aT-fQt" kind="relationship" relationship="viewControllers" id="RQ9-0P-EdY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NZs-we-Zf3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-335" y="96"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ant.fill" catalog="system" width="107" height="128"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+    </resources>
+</document>
