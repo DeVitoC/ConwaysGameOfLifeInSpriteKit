@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController {
 
     let mainStackView = UIStackView()
     let speedLabel = UILabel()
-    let cellSizeLabel = UILabel()
+//    let cellSizeLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +28,14 @@ class SettingsViewController: UIViewController {
         let liveCellColorStackView = UIStackView()
         let deadCellColorStackView = UIStackView()
         let speedStackView = UIStackView()
-        let cellSizeStackView = UIStackView()
+//        let cellSizeStackView = UIStackView()
         let presetStackView = UIStackView()
         let liveCellColorLabel = UILabel()
         let liveCellPickerView = UIPickerView()
         let deadCellColorLabel = UILabel()
         let deadCellPickerView = UIPickerView()
         let speedSlider = UISlider()
-        let cellSizeSlider = UISlider()
+//        let cellSizeSlider = UISlider()
         let presetLabel = UILabel()
         let presetPickerView = UIPickerView()
 
@@ -43,7 +43,7 @@ class SettingsViewController: UIViewController {
         mainStackView.addArrangedSubview(liveCellColorStackView)
         mainStackView.addArrangedSubview(deadCellColorStackView)
         mainStackView.addArrangedSubview(speedStackView)
-        mainStackView.addArrangedSubview(cellSizeStackView)
+//        mainStackView.addArrangedSubview(cellSizeStackView)
         mainStackView.addArrangedSubview(presetStackView)
         liveCellColorStackView.addArrangedSubview(liveCellColorLabel)
         liveCellColorStackView.addArrangedSubview(liveCellPickerView)
@@ -51,8 +51,8 @@ class SettingsViewController: UIViewController {
         deadCellColorStackView.addArrangedSubview(deadCellPickerView)
         speedStackView.addArrangedSubview(speedLabel)
         speedStackView.addArrangedSubview(speedSlider)
-        cellSizeStackView.addArrangedSubview(cellSizeLabel)
-        cellSizeStackView.addArrangedSubview(cellSizeSlider)
+//        cellSizeStackView.addArrangedSubview(cellSizeLabel)
+//        cellSizeStackView.addArrangedSubview(cellSizeSlider)
         presetStackView.addArrangedSubview(presetLabel)
         presetStackView.addArrangedSubview(presetPickerView)
 
@@ -60,7 +60,7 @@ class SettingsViewController: UIViewController {
         liveCellColorStackView.translatesAutoresizingMaskIntoConstraints = false
         deadCellColorStackView.translatesAutoresizingMaskIntoConstraints = false
         speedStackView.translatesAutoresizingMaskIntoConstraints = false
-        cellSizeStackView.translatesAutoresizingMaskIntoConstraints = false
+//        cellSizeStackView.translatesAutoresizingMaskIntoConstraints = false
         presetStackView.translatesAutoresizingMaskIntoConstraints = false
         liveCellPickerView.translatesAutoresizingMaskIntoConstraints = false
         liveCellColorLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -68,8 +68,8 @@ class SettingsViewController: UIViewController {
         deadCellColorLabel.translatesAutoresizingMaskIntoConstraints = false
         speedSlider.translatesAutoresizingMaskIntoConstraints = false
         speedLabel.translatesAutoresizingMaskIntoConstraints = false
-        cellSizeSlider.translatesAutoresizingMaskIntoConstraints = false
-        cellSizeLabel.translatesAutoresizingMaskIntoConstraints = false
+//        cellSizeSlider.translatesAutoresizingMaskIntoConstraints = false
+//        cellSizeLabel.translatesAutoresizingMaskIntoConstraints = false
         presetPickerView.translatesAutoresizingMaskIntoConstraints = false
         presetLabel.translatesAutoresizingMaskIntoConstraints = false
 
@@ -77,28 +77,28 @@ class SettingsViewController: UIViewController {
         liveCellColorStackView.axis = .horizontal
         deadCellColorStackView.axis = .horizontal
         speedStackView.axis = .horizontal
-        cellSizeStackView.axis = .horizontal
+//        cellSizeStackView.axis = .horizontal
         presetStackView.axis = .horizontal
 
         mainStackView.alignment = .fill
         liveCellColorStackView.alignment = .fill
         deadCellColorStackView.alignment = .fill
         speedStackView.alignment = .fill
-        cellSizeStackView.alignment = .fill
+//        cellSizeStackView.alignment = .fill
         presetStackView.alignment = .fill
 
         mainStackView.distribution = .fillEqually
         liveCellColorStackView.distribution = .fillEqually
         deadCellColorStackView.distribution = .fillEqually
         speedStackView.distribution = .fillEqually
-        cellSizeStackView.distribution = .fillEqually
+//        cellSizeStackView.distribution = .fillEqually
         presetStackView.distribution = .fillEqually
 
         mainStackView.spacing = 10
         liveCellColorStackView.spacing = 10
         deadCellColorStackView.spacing = 10
         speedStackView.spacing = 10
-        cellSizeStackView.spacing = 10
+//        cellSizeStackView.spacing = 10
         presetStackView.spacing = 10
 
         NSLayoutConstraint.activate([
@@ -108,16 +108,16 @@ class SettingsViewController: UIViewController {
             mainStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8)
         ])
 
-        liveCellColorLabel.textAlignment = .right
-        deadCellColorLabel.textAlignment = .right
-        speedLabel.textAlignment = .right
-        cellSizeLabel.textAlignment = .right
-        presetLabel.textAlignment = .right
+        liveCellColorLabel.textAlignment = .left
+        deadCellColorLabel.textAlignment = .left
+        speedLabel.textAlignment = .left
+//        cellSizeLabel.textAlignment = .right
+        presetLabel.textAlignment = .left
 
         liveCellColorLabel.text = "Live Cell Color:"
         deadCellColorLabel.text = "Dead Cell Color:"
-        speedLabel.text = "Speed: 4"
-        cellSizeLabel.text = "Cell Size: 10"
+        speedLabel.text = "Speed: \(settingsController.speed)"
+//        cellSizeLabel.text = "Cell Size: \(settingsController.cellSize)"
         presetLabel.text = "Preset: "
 
         liveCellColorLabel.font = UIFont(name: "System", size: 14)
@@ -129,10 +129,11 @@ class SettingsViewController: UIViewController {
         liveCellPickerView.selectRow(0, inComponent: 0, animated: false)
         liveCellPickerView.tag = 0
 
+
         deadCellPickerView.dataSource = self
         deadCellPickerView.delegate = self
         deadCellPickerView.widthAnchor.constraint(equalTo: deadCellColorStackView.widthAnchor, multiplier: 0.4).isActive = true
-        deadCellPickerView.selectRow(0, inComponent: 0, animated: false)
+        deadCellPickerView.selectRow(1, inComponent: 0, animated: false)
         deadCellPickerView.tag = 1
 
         presetPickerView.dataSource = self
@@ -150,14 +151,14 @@ class SettingsViewController: UIViewController {
         speedSlider.setThumbImage(UIImage(systemName: "circle.fill", withConfiguration: speedThumbConfiguration), for: .normal)
         speedSlider.addTarget(self, action: #selector(setSpeed(_:)), for: .valueChanged)
 
-        cellSizeSlider.minimumValue = 6
-        cellSizeSlider.minimumValueImage = UIImage(systemName: "smallcircle.fill.circle")
-        cellSizeSlider.maximumValue = 20
-        cellSizeSlider.maximumValueImage = UIImage(systemName: "largecircle.fill.circle")
-        cellSizeSlider.value = 10
-        let cellSizeThumbConfiguration = UIImage.SymbolConfiguration(pointSize: 13)
-        cellSizeSlider.setThumbImage(UIImage(systemName: "circle.fill", withConfiguration: cellSizeThumbConfiguration), for: .normal)
-        cellSizeSlider.addTarget(self, action: #selector(setCellSize(_:)), for: .valueChanged)
+//        cellSizeSlider.minimumValue = 14
+//        cellSizeSlider.minimumValueImage = UIImage(systemName: "smallcircle.fill.circle")
+//        cellSizeSlider.maximumValue = 24
+//        cellSizeSlider.maximumValueImage = UIImage(systemName: "largecircle.fill.circle")
+//        cellSizeSlider.value = 14
+//        let cellSizeThumbConfiguration = UIImage.SymbolConfiguration(pointSize: 13)
+//        cellSizeSlider.setThumbImage(UIImage(systemName: "circle.fill", withConfiguration: cellSizeThumbConfiguration), for: .normal)
+//        cellSizeSlider.addTarget(self, action: #selector(setCellSize(_:)), for: .valueChanged)
     }
 
     @objc func setSpeed(_ sender: UISlider) {
@@ -165,10 +166,10 @@ class SettingsViewController: UIViewController {
         settingsController.speed = Int(sender.value)
     }
 
-    @objc func setCellSize(_ sender: UISlider) {
-        cellSizeLabel.text = "Cell Size: \(Int(sender.value))"
-        settingsController.cellSize = Int(sender.value)
-    }
+//    @objc func setCellSize(_ sender: UISlider) {
+//        cellSizeLabel.text = "Cell Size: \(Int(sender.value))"
+//        settingsController.cellSize = Int(sender.value)
+//    }
 }
 
 extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {

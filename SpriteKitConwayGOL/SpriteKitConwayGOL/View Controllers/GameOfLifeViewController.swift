@@ -7,70 +7,56 @@
 //
 
 import UIKit
+import SpriteKit
 
 class GameOfLifeViewController: UIViewController {
-    let settingsController = SettingsController.shared
+    let settings = SettingsController.shared
 
-    let stackView = UIStackView()
-    let aliveLabel = UILabel()
-    let deadLabel = UILabel()
-    let speedLabel = UILabel()
-    let cellSizeLabel = UILabel()
-    let presetLabel = UILabel()
+    var skView: SKView?
+    var scene: GameScene?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        view.addSubview(stackView)
-        stackView.addArrangedSubview(aliveLabel)
-        stackView.addArrangedSubview(deadLabel)
-        stackView.addArrangedSubview(speedLabel)
-        stackView.addArrangedSubview(cellSizeLabel)
-        stackView.addArrangedSubview(presetLabel)
-        stackView.axis = .vertical
-
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        aliveLabel.translatesAutoresizingMaskIntoConstraints = false
-        deadLabel.translatesAutoresizingMaskIntoConstraints = false
-        speedLabel.translatesAutoresizingMaskIntoConstraints = false
-        cellSizeLabel.translatesAutoresizingMaskIntoConstraints = false
-        presetLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8)
-        ])
-
-        aliveLabel.text = "\(settingsController.liveCellColor)"
-        deadLabel.text = "\(settingsController.deadCellColor)"
-        speedLabel.text = "\(settingsController.speed)"
-        cellSizeLabel.text = "\(settingsController.cellSize)"
-        presetLabel.text = "\(settingsController.preset)"
+        skView = SKView(frame: view.frame)
+        view.addSubview(skView!)
+        setupView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NSLog("View Will Appear")
-        aliveLabel.text = "\(settingsController.liveCellColor)"
-        deadLabel.text = "\(settingsController.deadCellColor)"
-        speedLabel.text = "\(settingsController.speed)"
-        cellSizeLabel.text = "\(settingsController.cellSize)"
-        presetLabel.text = "\(settingsController.preset)"
-        view.reloadInputViews()
+        setupView()
     }
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        NSLog("View Did Appear")
-//        aliveLabel.text = "\(settingsController.liveCellColor)"
-//        deadLabel.text = "\(settingsController.deadCellColor)"
-//        speedLabel.text = "\(settingsController.speed)"
-//        cellSizeLabel.text = "\(settingsController.cellSize)"
-//        presetLabel.text = "\(settingsController.preset)"
-//        view.reloadInputViews()
-//
-//    }
+    func setupView() {
+        guard let skView = skView else { return }
+        NSLayoutConstraint.activate([
+            skView.topAnchor.constraint(equalTo: view.topAnchor),
+            skView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            skView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            skView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        scene = GameScene(size: view.bounds.size)
+        
+        skView.showsFPS = true
+        skView.preferredFramesPerSecond = settings.speed
+        skView.showsNodeCount = true
+        scene?.scaleMode = .resizeFill
+        guard let tabBar = tabBarController?.tabBar else { return }
+        settings.tabBarHeight = tabBar.frame.height
+        skView.presentScene(scene)
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .portrait
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        true
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }

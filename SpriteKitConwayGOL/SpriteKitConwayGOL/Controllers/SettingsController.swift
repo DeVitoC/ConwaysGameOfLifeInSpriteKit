@@ -18,8 +18,10 @@ class SettingsController {
     let deadCellColors = ["BLACK", "WHITE", "LIGHT GRAY", "DARK GRAY"]
     let deadCellColorsSystem: [UIColor] = [.black, .white, .systemGray4, .systemGray]
     var deadCellColor: UIColor = .white
-    let presets = ["Random", "Gosper Glider Gun", "Constructor", "Stable Shapes", "Spaceships"]
+    let presets = ["Random", "Gosper Glider Gun", "Still Lifes", "Oscillators", "Spaceships"]
     var speed: Int = 4
-    var cellSize: Int = 10
+    var cellSize: Int = 14
     var preset: String = "Random"
+
+    var tabBarHeight: CGFloat = 49
 }

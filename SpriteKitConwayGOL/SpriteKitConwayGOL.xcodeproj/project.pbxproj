@@ -17,6 +17,7 @@
 		E246DF4C24A9B7B300B53938 /* GameOfLifeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E246DF4B24A9B7B300B53938 /* GameOfLifeViewController.swift */; };
 		E246DF4E24A9B7C800B53938 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E246DF4D24A9B7C800B53938 /* SettingsController.swift */; };
 		E246DF5024A9BA4300B53938 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E246DF4F24A9BA4300B53938 /* GameController.swift */; };
+		E29C1F5624AA80AF00BAB1F0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C1F5524AA80AF00BAB1F0 /* GameScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		E246DF4B24A9B7B300B53938 /* GameOfLifeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLifeViewController.swift; sourceTree = "<group>"; };
 		E246DF4D24A9B7C800B53938 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		E246DF4F24A9BA4300B53938 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		E29C1F5524AA80AF00BAB1F0 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			children = (
 				E246DF2824A9B54D00B53938 /* Main.storyboard */,
 				E246DF2D24A9B55100B53938 /* LaunchScreen.storyboard */,
+				E29C1F5524AA80AF00BAB1F0 /* GameScene.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				E246DF4E24A9B7C800B53938 /* SettingsController.swift in Sources */,
 				E246DF2524A9B54D00B53938 /* SceneDelegate.swift in Sources */,
 				E246DF4A24A9B73400B53938 /* SettingsViewController.swift in Sources */,
+				E29C1F5624AA80AF00BAB1F0 /* GameScene.swift in Sources */,
 				E246DF4C24A9B7B300B53938 /* GameOfLifeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +421,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8825K9HH49;
 				INFOPLIST_FILE = SpriteKitConwayGOL/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -435,6 +440,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8825K9HH49;
 				INFOPLIST_FILE = SpriteKitConwayGOL/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
