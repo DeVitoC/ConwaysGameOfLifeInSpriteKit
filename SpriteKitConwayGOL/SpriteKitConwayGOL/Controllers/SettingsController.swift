@@ -6,8 +6,23 @@
 //  Copyright © 2020 Christopher Devito. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class SettingsController {
 
+    static let shared = SettingsController()
+
+    let liveCellColors = ["TEAL", "BLUE", "GREEN", "YELLOW", "RED", "PURPLE"]
+    let liveCellColorsSystem: [UIColor] = [.systemTeal, .systemBlue, .systemGreen, .systemYellow, .systemRed, .systemPurple]
+    var liveCellColor: UIColor = .systemTeal
+    let deadCellColors = ["BLACK", "WHITE", "LIGHT GRAY", "DARK GRAY"]
+    let deadCellColorsSystem: [UIColor] = [.black, .white, .systemGray4, .systemGray]
+    var deadCellColor: UIColor = .white
+    let presets = ["Random", "Gosper Glider Gun", "Still Lifes", "Oscillators", "Spaceships"]
+    var speed: Int = 4
+    var cellSize: Int = 14
+    var preset: String = "Random"
+    var prevPreset: String = "Random"
+
+    var tabBarHeight: CGFloat = 49
 }

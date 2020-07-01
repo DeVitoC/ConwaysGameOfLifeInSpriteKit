@@ -7,24 +7,58 @@
 //
 
 import UIKit
+import SpriteKit
 
 class GameOfLifeViewController: UIViewController {
+    let settings = SettingsController.shared
 
+    var skView: SKView?
+    var scene: GameScene?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        skView = SKView(frame: view.frame)
+        view.addSubview(skView!)
+        setupView()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NSLog("View Will Appear")
+        if settings.preset != settings.prevPreset {
+            setupView()
+        }
     }
-    */
 
+    func setupView() {
+        guard let skView = skView else { return }
+        NSLayoutConstraint.activate([
+            skView.topAnchor.constraint(equalTo: view.topAnchor),
+            skView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            skView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            skView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        scene = GameScene(size: view.bounds.size)
+        
+        skView.showsFPS = true
+        skView.preferredFramesPerSecond = settings.speed
+        skView.showsNodeCount = true
+        scene?.scaleMode = .resizeFill
+        guard let tabBar = tabBarController?.tabBar else { return }
+        settings.tabBarHeight = tabBar.frame.height
+        skView.presentScene(scene)
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .portrait
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        true
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }
