@@ -26,7 +26,9 @@ class GameOfLifeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NSLog("View Will Appear")
-        setupView()
+        if settings.preset != settings.prevPreset {
+            setupView()
+        }
     }
 
     func setupView() {

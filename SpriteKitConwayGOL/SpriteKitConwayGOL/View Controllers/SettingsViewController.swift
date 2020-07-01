@@ -22,6 +22,11 @@ class SettingsViewController: UIViewController {
         setupViews()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        settingsController.prevPreset = settingsController.preset
+    }
+
     func setupViews() {
         navigationItem.title = "Settings"
 

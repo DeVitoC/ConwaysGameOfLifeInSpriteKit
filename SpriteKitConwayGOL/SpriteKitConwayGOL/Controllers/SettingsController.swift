@@ -22,6 +22,7 @@ class SettingsController {
     var speed: Int = 4
     var cellSize: Int = 14
     var preset: String = "Random"
+    var prevPreset: String = "Random"
 
     var tabBarHeight: CGFloat = 49
 }
